@@ -145,31 +145,33 @@ const CMSForm = () => {
   const [cmsRes, setCmsRes] = useState(false);
 
   const handleNextClick = () => {
-    let jsonPayload = {
-      system: selSystem,
-      authType: selAuthType,
-      connAttr: credVals,
-    };
-    console.log(jsonPayload);
+    if (flowUI === 2) {
+      let jsonPayload = {
+        system: selSystem,
+        authType: selAuthType,
+        connAttr: credVals,
+      };
 
-    /*const res = postCMSSystem(jsonPayload);
-    const postCMS = async () => {
-      const response = await res;
-      console.log(response);
-      if (response.status === 201) {
+      const res = postCMSSystem(jsonPayload);
+      if (res.data.status === 201) {
         setCmsRes(true);
       } else {
         setCmsRes(false);
       }
-    };
-    postCMS();*/
+    }
     setFlowUI(flowUI + 1);
   };
 
   const handleBackClick = () => {
     setFlowUI(flowUI - 1);
+
     if (flowUI === 1) {
       navigate("/");
+    } else if (flowUI === 2) {
+      setSelSystem("");
+      setSelAuthType("");
+    } else if (flowUI === 3) {
+      setCredVals({});
     }
   };
 

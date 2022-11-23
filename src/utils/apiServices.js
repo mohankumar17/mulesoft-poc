@@ -25,18 +25,22 @@ export const getCreds = async (system, authType) => {
 
 export const getCMSSystems = async () => {
   const response = await axios.get(`${cmsUrl}/retrieve`);
-  console.log(response);
   return response.data;
 };
 
-export const postCMSSystem = async (newSys) => {
+export const postCMSSystem = async (payload) => {
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
   axios
-    .post(`${cmsUrl}/cms?env=prod`, newSys)
-    .then((response) => {
-      return response;
+    .post(`${cmsUrl}/cms?env=prod`, payload, config)
+    .then((res) => {
+      return res;
     })
-    .catch((error) => {
-      return error;
+    .catch((err) => {
+      return err;
     });
 };
 

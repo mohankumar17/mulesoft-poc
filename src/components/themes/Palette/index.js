@@ -34,7 +34,7 @@ export const palette = {
     main: COLORS.ERROR,
   },
   success: {
-    main: COLORS.ERROR,
+    main: COLORS.SUCCESS,
   },
   warning: {
     main: COLORS.WARNING,

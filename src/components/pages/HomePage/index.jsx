@@ -81,7 +81,7 @@ const HomePage = () => {
         <StackA>
           <StackA1>
             <Typography variant="title">
-              Add a system to cms store in easy steps and get project file.
+              Donec imperdiet id velit ut sollicitudin et libero.
             </Typography>
             <Typography variant="body3">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
