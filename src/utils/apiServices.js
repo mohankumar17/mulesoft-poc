@@ -34,14 +34,8 @@ export const postCMSSystem = async (payload) => {
       "Content-Type": "application/json",
     },
   };
-  axios
-    .post(`${cmsUrl}/cms?env=prod`, payload, config)
-    .then((res) => {
-      return res;
-    })
-    .catch((err) => {
-      return err;
-    });
+  const res = axios.post(`${cmsUrl}/cms?env=prod`, payload, config);
+  return res;
 };
 
 export const getProject = (systems, appName) => {

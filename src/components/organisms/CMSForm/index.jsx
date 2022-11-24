@@ -142,7 +142,7 @@ const CMSForm = () => {
     setCredVals(credVals);
   };
 
-  const [cmsRes, setCmsRes] = useState(false);
+  const [cmsRes, setCmsRes] = useState(0);
 
   const handleNextClick = () => {
     if (flowUI === 2) {
@@ -152,18 +152,23 @@ const CMSForm = () => {
         connAttr: credVals,
       };
 
-      const res = postCMSSystem(jsonPayload);
-      if (res.data.status === 201) {
-        setCmsRes(true);
-      } else {
-        setCmsRes(false);
-      }
+      const resData = postCMSSystem(jsonPayload);
+      const postCMSRes = async () => {
+        const res = await resData;
+        if (res.status === 201) {
+          setCmsRes(1);
+        } else {
+          setCmsRes(2);
+        }
+      };
+      postCMSRes();
     }
     setFlowUI(flowUI + 1);
   };
 
   const handleBackClick = () => {
     setFlowUI(flowUI - 1);
+    setCmsRes(0);
 
     if (flowUI === 1) {
       navigate("/");
@@ -296,12 +301,12 @@ const CMSForm = () => {
 
           {flowUI === 3 && (
             <>
-              {cmsRes === true && (
+              {cmsRes === 1 && (
                 <LabelTextD variant="caption2">
                   Successfully added to CMS Store
                 </LabelTextD>
               )}
-              {cmsRes === false && (
+              {cmsRes === 2 && (
                 <LabelTextE variant="caption2">
                   Failed adding to CMS Store
                 </LabelTextE>
