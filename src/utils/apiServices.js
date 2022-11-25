@@ -29,12 +29,7 @@ export const getCMSSystems = async () => {
 };
 
 export const postCMSSystem = async (payload) => {
-  const config = {
-    headers: {
-      "Content-Type": "application/json",
-    },
-  };
-  const res = axios.post(`${cmsUrl}/cms?env=prod`, payload, config);
+  const res = axios.post(`${cmsUrl}/cms?env=prod`, payload);
   return res;
 };
 

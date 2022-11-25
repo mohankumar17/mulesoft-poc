@@ -147,7 +147,7 @@ const CMSForm = () => {
   const handleNextClick = () => {
     if (flowUI === 2) {
       let jsonPayload = {
-        system: selSystem,
+        system: selSystem.toLowerCase(),
         authType: selAuthType,
         connAttr: credVals,
       };
@@ -301,6 +301,9 @@ const CMSForm = () => {
 
           {flowUI === 3 && (
             <>
+              {cmsRes === 0 && (
+                <LabelTextD variant="caption2">Adding to CMS Store</LabelTextD>
+              )}
               {cmsRes === 1 && (
                 <LabelTextD variant="caption2">
                   Successfully added to CMS Store
@@ -316,6 +319,7 @@ const CMSForm = () => {
                   onClick={() => {
                     setSelSystem("");
                     setAuthTypes("");
+                    setCmsRes(0);
                     setFlowUI(1);
                   }}
                 >

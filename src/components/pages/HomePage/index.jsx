@@ -14,6 +14,9 @@ const BoxB = styled(Box)({
   display: "flex",
   flexDirection: "column",
   gap: "2em",
+  [theme.breakpoints.down("md")]: {
+    padding: "0.5em 1.25em",
+  },
 });
 
 const StackA = styled(Stack)({
@@ -22,6 +25,10 @@ const StackA = styled(Stack)({
   flexDirection: "row",
   gap: "10em",
   minHeight: "30em",
+  [theme.breakpoints.down("md")]: {
+    gap: "2em",
+    flexDirection: "column",
+  },
 });
 
 const StackNav = styled(Stack)({
@@ -40,12 +47,19 @@ const StackA1 = styled(Stack)({
   alignItems: "flex-start",
   gap: "2.5em",
   width: "50%",
+  [theme.breakpoints.down("md")]: {
+    gap: "1.25em",
+    fontSize: "0.875em",
+  },
 });
 
 const ButtonStack = styled(Stack)({
   justifyContent: "space-between",
   flexDirection: "row",
   gap: "2em",
+  [theme.breakpoints.down("md")]: {
+    gap: "0.5em",
+  },
 });
 
 const AddButton = styled(ButtonComp)({
@@ -60,6 +74,11 @@ const AddButton = styled(ButtonComp)({
   "&:hover": {
     backgroundColor: `${theme.palette.secondary.dark}`,
   },
+  [theme.breakpoints.down("md")]: {
+    fontWeight: 500,
+    fontSize: "0.75em",
+    padding: "0.75em",
+  },
 });
 
 const StackB = styled(Stack)({
@@ -69,6 +88,18 @@ const StackB = styled(Stack)({
   padding: "3em",
   gap: "5em",
   backgroundColor: `${theme.palette.secondary.light}`,
+  [theme.breakpoints.down("md")]: {
+    gap: "2.5em",
+    padding: "1.5em",
+    flexDirection: "column",
+  },
+});
+
+const Image = styled("img")({
+  [theme.breakpoints.down("md")]: {
+    width: "60%",
+    height: "50%"
+  },
 });
 
 const HomePage = () => {
@@ -107,13 +138,13 @@ const HomePage = () => {
               </AddButton>
             </ButtonStack>
           </StackA1>
-          <img
+          <Image
             src={require("../../../assets/images/cms-homepage.PNG")}
             alt="img"
           />
         </StackA>
         <StackB>
-          <img
+          <Image
             height="300px"
             width="500px"
             src={require("../../../assets/images/cms-store.PNG")}
@@ -145,7 +176,7 @@ const HomePage = () => {
               ipsum primis in faucibus.
             </Typography>
           </StackA1>
-          <img
+          <Image
             src={require("../../../assets/images/project-builder.PNG")}
             alt="img"
             height="300px"
