@@ -302,15 +302,17 @@ const CMSForm = () => {
           {flowUI === 3 && (
             <>
               {cmsRes === 0 && (
-                <LabelTextD variant="caption2">Adding to CMS Store</LabelTextD>
+                <LabelTextA variant="caption2" sx={{ margin: "0px auto" }}>
+                  Adding to CMS Store
+                </LabelTextA>
               )}
               {cmsRes === 1 && (
-                <LabelTextD variant="caption2">
+                <LabelTextD variant="caption2" sx={{ margin: "0px auto" }}>
                   Successfully added to CMS Store
                 </LabelTextD>
               )}
               {cmsRes === 2 && (
-                <LabelTextE variant="caption2">
+                <LabelTextE variant="caption2" sx={{ margin: "0px auto" }}>
                   Failed adding to CMS Store
                 </LabelTextE>
               )}
